@@ -1,0 +1,86 @@
+set nocompatible " No vi backwards compatibility
+filetype off " Required for vundle
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" Github repos
+" Graphical undo
+Bundle 'sjl/gundo.vim'
+" Commenting
+Bundle 'scrooloose/nerdcommenter'
+" Filetree
+Bundle 'scrooloose/nerdtree'
+" Rainbow parenthsis
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'YankRing.vim'
+Bundle 'ervandew/supertab'
+
+filetype plugin indent on " Filetype detection on, load plugins and indent
+
+set modelines=0 " Close security hole in modelines
+
+" Tabs, spaces and indentation
+set expandtab " Use spaces for tabs
+set tabstop=2 " Number of spaces to use for tabs
+set shiftwidth=2 "Number of spaces to autoindent
+set softtabstop=2 " Number of spaces for a tab key
+set autoindent " Autoindent on
+set smartindent " Insert extra indent when required
+
+" Visuals
+set title
+syntax on " Enable syntax highlighting
+set cursorline " Show full-width line below cursor
+set showcmd " Provide current command information in bottom bar
+set relativenumber " Show line numberings based on current line
+set showmode " Shows when in insert mode in bottom bar
+set ruler " Show current position in bottom bar 
+set ttyfast " Improves redrawing
+set laststatus=2 " Always show the status line
+
+set hidden " Enable unsaved buffers
+set undofile " Create an undo file to maintain undo history across sessions
+
+" Vim commands
+set wildmenu " Enable a menu at the bottom of the screen
+set wildmode=list:longest,full " vim command autocompletion
+
+" Search and replace
+set scrolloff=5 " Add context to search, x lines above and below
+set hlsearch " Highlight search terms
+set incsearch " Show matches whilst typing
+set ignorecase " Ignore case in search, unless...
+set smartcase " If one char is uppercase, match case
+set gdefault " Replace all occurrences on line, not just first
+
+" Editing
+set fileformats=unix,dos,mac " Set line ending preferences
+set backspace=indent,eol,start
+
+" Folders
+set backupdir=~/.vim/tmp/backup " Backup files to folder when editing
+set undodir=~/.vim/tmp/undo
+set directory=~/.vim/tmp/swap
+
+" Keyboard bindings
+let mapleader = ","
+" Use regular expressions, not vim regex
+nnoremap / /\v
+vnoremap / /\v
+" Clear search highlighting with ESC key
+nnoremap <leader><space> :noh
+" Disable arrow keys
+inoremap <up> <NOP>
+inoremap <down> <NOP>
+inoremap <left> <NOP>
+inoremap <right> <NOP>
+nnoremap <up> <NOP>
+nnoremap <down> <NOP>
+nnoremap <left> <NOP>
+nnoremap <right> <NOP>
+
+autocmd VimEnter * RainbowParenthesesToggle
